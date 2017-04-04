@@ -13,9 +13,19 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('Items', function (Blueprint $table) {
+            $table->increments('id'); 
+            $table->string('name');
+            $table->longText('desc');
+            $table->integer('id_cat');
+            $table->integer('price');
+            $table->integer('amount');
+            $table->integer('id_fp');
+            $table->integer('id_ngo');
+            $table->timestamp('upload_at');
+            $table->integer('publish');
+
+            
         });
     }
 
@@ -26,6 +36,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('Items');
     }
 }

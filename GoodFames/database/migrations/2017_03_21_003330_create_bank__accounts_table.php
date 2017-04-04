@@ -13,9 +13,9 @@ class CreateBankAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank__accounts', function (Blueprint $table) {
+        Schema::create('Bank_Accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateBankAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank__accounts');
+        Schema::dropIfExists('Bank_Accounts');
     }
 }

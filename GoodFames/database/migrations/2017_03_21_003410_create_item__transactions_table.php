@@ -13,9 +13,19 @@ class CreateItemTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('item__transactions', function (Blueprint $table) {
+        Schema::create('Item_Transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('id_customer');
+            $table->integer('id_ngo');
+            $table->integer('id_fp');
+            $table->integer('id_item');
+            $table->integer('amount');
+            $table->integer('id_bank');
+            $table->integer('total');
+            $table->timestamp('time');
+            $table->string('confirm_photo');
+            $table->datetime('confirm_time');
+            $table->integer('paid_status');
         });
     }
 
@@ -26,6 +36,6 @@ class CreateItemTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item__transactions');
+        Schema::dropIfExists('Item_Transactions');
     }
 }

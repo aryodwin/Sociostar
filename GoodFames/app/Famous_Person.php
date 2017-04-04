@@ -4,23 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use App\Bank_Account;
 use App\Items;
-class NGO extends Model
+class Famous_Person extends Model
 {
     //
-    protected $table = 'NGO';
+    protected $table = 'Famous_Person';
     public $timestamps = false;
-    protected $fillable = ['desc','id_bank','no_bank','bank_name'];
+    protected $fillable = ['desc'];
 
     public function User()
     {
         return $this->hasOne('App\User');
-    }
-
-    public function Bank()
-    {
-        return $this->hasOne('App\Bank_Account');
     }
 
     public function Items()

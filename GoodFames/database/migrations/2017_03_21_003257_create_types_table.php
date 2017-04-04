@@ -13,9 +13,9 @@ class CreateTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('Type', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('Type');
     }
 }

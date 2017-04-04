@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNGOsTable extends Migration
+class CreateCasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateNGOsTable extends Migration
      */
     public function up()
     {
-        Schema::create('NGO', function (Blueprint $table) {
-            $table->integer('id')->primary(); //['desc','id_bank','no_bank','bank_name']
+        Schema::create('Case', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
             $table->text('desc');
-            $table->integer('id_bank');
-            $table->integer('no_bank');
-            $table->string('bank_name');
-
-            
+            $table->string('photo');
+            $table->integer('id_NGO');
+            $table->string('location');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateNGOsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('NGO');
+        Schema::dropIfExists('Case');
     }
 }

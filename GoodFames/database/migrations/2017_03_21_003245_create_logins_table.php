@@ -13,9 +13,14 @@ class CreateLoginsTable extends Migration
      */
     public function up()
     {
-        Schema::create('logins', function (Blueprint $table) {
+        Schema::create('Login', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('username');
+            $table->string('password');
+            $table->rememberToken();
+            $table->smallInteger('type');
+
+            
         });
     }
 
@@ -26,6 +31,6 @@ class CreateLoginsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logins');
+        Schema::dropIfExists('Login');
     }
 }
